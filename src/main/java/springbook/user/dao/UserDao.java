@@ -10,11 +10,11 @@ import springbook.user.domain.User;
 
 public class UserDao {
 	public void add(User user) throws ClassNotFoundException, SQLException {
-		/*
+		/* 
 		Class.forName("com.mysql.jdbc.Driver");
 		Connection c = DriverManager.getConnection(
 				"jdbc:mysql://localhost/springbook?autoReconnect=true&useSSL=false", "spring", "book");
-		*/
+		*/ //1.1
 		Connection c = getConnection();
 		PreparedStatement ps = c.prepareStatement(
 				"INSERT INTO users(id, name, password) VALUES (?,?,?)");
@@ -30,11 +30,11 @@ public class UserDao {
 	}
 	
 	public User get(String id) throws ClassNotFoundException ,SQLException {
-		/*
+		/* 
 		Class.forName("com.mysql.jdbc.Driver");
 		Connection c = DriverManager.getConnection(
 				"jdbc:mysql://localhost/springbook?autoReconnect=true&useSSL=false", "spring", "book");
-		*/
+		*/ //1.1
 		Connection c = getConnection();
 		PreparedStatement ps = c.prepareStatement(
 				"SELECT * FROM users WHERE id = ?");
