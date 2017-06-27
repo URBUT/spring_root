@@ -14,7 +14,9 @@ spirng study history
 
 ###### 템플릿 메소드 패턴 _template method pattern_
 ```
-슈퍼클래스에 기본적인 로직의 흐름(connection 가져오기, SQL 생성, 실행, close)을 만들고, 그 기능의 일부를 추상 메소드나 오버라이딩이 가능한 protected 메소드 등으로 만든 뒤 서브클래스에서 이런 메소드를 필요에 맞게 구현해서 사용하도록 하는 방법
+슈퍼클래스에 기본적인 로직의 흐름(connection 가져오기, SQL 생성, 실행, close)을 만들고,
+그 기능의 일부를 추상 메소드나 오버라이딩이 가능한 protected 메소드 등으로 만든 뒤
+서브클래스에서 이런 메소드를 필요에 맞게 구현해서 사용하도록 하는 방법
 ```
 
 ###### 팩토리 메소드 패턴 _factory method pattern_
@@ -37,5 +39,30 @@ public class AFactoryDAO extends factoryDAO {
 
 **java는 클래스의 다중상속을 허용하지 않는다**
 
-test
+```mermaid
+graph LR
+UserDaoTest-->UserDao
+UserDao-->ConnectionMaker
+DconnectionMaker-->ConnectionMaker
+UserDaoTest-->DconnectionMaker
+```
 
+**개방 폐쇄 원칙** _OCP, Open-Closed Principle_
+> '클래스나 모듈은 확장에는 열려 있어야 하고 변경에는 닫혀 있어야 한다.'
+
+
+
+#### 객체지향 설계 원칙(SOLID)
+~~~
+SRP(The Single Responsibility Principle) : 단일 책임 원칙
+OCP(The Open Closed Principle) : 개방 폐쇄 원칙
+LSP(The Liskov Substitution Principle) : 리스코프 치환 원칙
+ISP(The Interface Segregation Principle) : 인터페이스 분리 원칙
+DIP(The Dependency Inversion Principle) : 의존관계 역전 원칙
+~~~
+
+###### SRP
+- 높은 응집도
+ : 변경이 일어날 때 모듈의 많은 부분이 한꺼번에 함께 바뀐다면 응집도가 높다고 할 수 있다.
+- 낮은 결합도
+ : 하나의 오브젝트가 변경이 일어날 때에 관계를 맺고 있는 다른 오브젝트에게 변화를 요구하는 정도
