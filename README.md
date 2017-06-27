@@ -37,4 +37,5 @@ public class AFactoryDAO extends factoryDAO {
 
 **java는 클래스의 다중상속을 허용하지 않는다**
 
+test
 
